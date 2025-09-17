@@ -1,4 +1,5 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
+import { Marker, Popup, useMap, useMapEvents } from "react-leaflet";
 
 // 🔹 Autocomplete search box
 export function LocationSearch({
@@ -139,4 +140,46 @@ export function LocationSearch({
       )}
     </div>
   );
+}
+
+// 🔹 Map marker handling
+export function LocationMarkers({ pickup, setPickup, drop, setDrop }) {
+  useMapEvents({
+    click(e) {
+      if (!pickup) {
+        setPickup(e.latlng);
+      } else if (!drop) {
+        setDrop(e.latlng);
+      } else {
+        setPickup(e.latlng);
+        setDrop(null);
+      }
+    },
+  });
+
+  return (
+    <>
+      {pickup && (
+        <Marker position={pickup}>
+          <Popup>Pickup Location</Popup>
+        </Marker>
+      )}
+      {drop && (
+        <Marker position={drop}>
+          <Popup>Destination</Popup>
+        </Marker>
+      )}
+    </>
+  );
+}
+
+// 🔹 Auto-fit to route bounds
+export function FitBoundsHandler({ route }) {
+  const map = useMap();
+  useEffect(() => {
+    if (route && route.length > 0) {
+      map.fitBounds(route, { padding: [50, 50] });
+    }
+  }, [route, map]);
+  return null;
 }

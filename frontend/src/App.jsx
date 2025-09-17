@@ -1,58 +1,12 @@
 import { useState, useEffect } from "react";
-import {
-  MapContainer,
-  TileLayer,
-  Marker,
-  Popup,
-  Polyline,
-  useMapEvents,
-  useMap,
-} from "react-leaflet";
+import { MapContainer, TileLayer, Polyline } from "react-leaflet";
 import "leaflet/dist/leaflet.css";
 
-import { LocationSearch } from "./LocationSearch";
-
-// 🔹 Map marker handling
-function LocationMarkers({ pickup, setPickup, drop, setDrop }) {
-  useMapEvents({
-    click(e) {
-      if (!pickup) {
-        setPickup(e.latlng);
-      } else if (!drop) {
-        setDrop(e.latlng);
-      } else {
-        setPickup(e.latlng);
-        setDrop(null);
-      }
-    },
-  });
-
-  return (
-    <>
-      {pickup && (
-        <Marker position={pickup}>
-          <Popup>Pickup Location</Popup>
-        </Marker>
-      )}
-      {drop && (
-        <Marker position={drop}>
-          <Popup>Destination</Popup>
-        </Marker>
-      )}
-    </>
-  );
-}
-
-// 🔹 Auto-fit to route bounds
-function FitBoundsHandler({ route }) {
-  const map = useMap();
-  useEffect(() => {
-    if (route && route.length > 0) {
-      map.fitBounds(route, { padding: [50, 50] });
-    }
-  }, [route, map]);
-  return null;
-}
+import {
+  LocationMarkers,
+  LocationSearch,
+  FitBoundsHandler,
+} from "./LocationSearch";
 
 function App() {
   const [pickup, setPickup] = useState(null);
