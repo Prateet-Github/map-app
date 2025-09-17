@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { Marker, Popup, useMap, useMapEvents } from "react-leaflet";
 
-// 🔹 Autocomplete search box
+//  Autocomplete search box
 export function LocationSearch({
   label,
   onSelect,
@@ -142,7 +142,7 @@ export function LocationSearch({
   );
 }
 
-// 🔹 Map marker handling
+//  Map marker handling
 export function LocationMarkers({ pickup, setPickup, drop, setDrop }) {
   useMapEvents({
     click(e) {
@@ -173,7 +173,7 @@ export function LocationMarkers({ pickup, setPickup, drop, setDrop }) {
   );
 }
 
-// 🔹 Auto-fit to route bounds
+//  Auto-fit to route bounds
 export function FitBoundsHandler({ route }) {
   const map = useMap();
   useEffect(() => {
