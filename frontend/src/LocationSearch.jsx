@@ -183,3 +183,24 @@ export function FitBoundsHandler({ route }) {
   }, [route, map]);
   return null;
 }
+
+export const FareAlgo = (distance, duration) => {
+    // Base fare
+    let fare = 10.0;
+
+    // Distance fare (10 per km)
+    fare += distance * 30;
+
+    // Time fare (10 per minute)
+    fare += duration * 0.2;
+
+    // Surge pricing (e.g., 1.5x during peak hours)
+    const currentHour = new Date().getHours();
+    if (currentHour >= 7 && currentHour <= 9) {
+      fare *= 1.5; // Morning rush hour
+    } else if (currentHour >= 17 && currentHour <= 19) {
+      fare *= 1.5; // Evening rush hour
+    }
+
+    return fare.toFixed(2);
+  };
