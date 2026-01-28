@@ -62,7 +62,9 @@ function DesktopApp() {
     <div className="h-screen w-full bg-white overflow-hidden">
       {/* Desktop Layout */}
       <div className="hidden lg:flex h-full flex-col">
-        <nav className="bg-black text-white text-4xl p-4 static">Uber</nav>
+        <nav className="bg-black text-white text-2xl font-bold p-4 static">
+          OpenRoute
+        </nav>
         {/* Desktop Sidebar */}
 
         <div className="flex-1 flex overflow-hidden">

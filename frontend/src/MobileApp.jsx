@@ -62,7 +62,9 @@ function MobileApp() {
     <div className="h-screen w-full bg-white overflow-hidden">
       {/* Mobile Layout */}
       <div className="lg:hidden h-full flex flex-col">
-        <nav className="bg-black text-white text-4xl p-4 static">Uber</nav>
+        <nav className="bg-black text-white text-2xl font-bold p-4 static">
+          OpenRoute
+        </nav>
         {/* Mobile Header with Search */}
         <div className="bg-white shadow-sm z-[1000] relative">
           <div className="px-4 py-4 border-b border-gray-100">

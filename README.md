@@ -1,4 +1,4 @@
-# Map App 🗺️
+# OpenRoute 🗺️
 
 An open-source alternative to Google Maps API built with modern web technologies and free mapping services.
 
@@ -34,7 +34,7 @@ This application provides a complete mapping solution using entirely open-source
 ## Project Structure
 
 ```
-map-app/
+openroute/
 ├── backend/           # Server-side application
 │   ├── routes/       # API endpoints
 │   ├── controllers/  # Business logic
@@ -57,7 +57,7 @@ map-app/
 
 1. Clone the repository
 ```bash
-git clone https://github.com/Prateet-Github/map-app.git
+git clone https://github.com/Prateet-Github/openroute.git
 cd map-app
 ```
 
